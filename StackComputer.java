@@ -23,7 +23,7 @@ public class StackComputer {
     }
 
     /**
-     * Push a value on the stack
+     * Push a value on the stack. Throw exception if the stack is full.
      */
     public void push(int value) throws StackException {
     }
