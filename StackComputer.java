@@ -5,27 +5,43 @@ public class StackComputer {
     /**
      * Create a stack computer with a given maximum stack size
      */
+
+    public int[] stack;
+    public int top = 0;
+    public int maxsize;
+
     public StackComputer(int maxsize) {
+        stack = new int[maxsize];
+        maxsize = maxsize;
     }
 
     /**
      * Return the array of ints that represents the stack
      */
     public int[] getStack() {
-        return null;
+        return stack;
     }
 
     /**
      * Return the number of elements in the stack
      */
     public int size() {
-        return 0;
+        return top;
     }
 
     /**
-     * Push a value on the stack. Throw exception if the stack is full.
+     * Push a value on the stack. If stack full 
+     * throw a StackException
      */
     public void push(int value) throws StackException {
+        if (top+1 == maxsize) {
+            throw new StackException("Stack is full");
+        }
+        else {
+            stack[top] = value;
+            top += 1;
+        }
+
     }
 
     /**
@@ -33,7 +49,16 @@ public class StackComputer {
      * throw a StackException
      */
     public int pop() throws StackException {
-        return 0;
+        if (stack[0] == 0){
+            throw new StackException("Stack is empty");
+        }
+
+        else{
+            int oldvalue = stack[top - 1];
+            stack[top - 1] = 0;
+            top -= 1;
+            return oldvalue;
+        }
     }
 
     /**
@@ -41,7 +66,13 @@ public class StackComputer {
      * empty
      */
     public int peek() throws StackException {
-        return 0;
+        if (stack[0] == 0){
+            throw new StackException("Stack is empty");
+        }
+
+        else{
+            return stack[top - 1];
+        }
     }
 
     /**
@@ -49,6 +80,23 @@ public class StackComputer {
      * Throw a StackException if the stack is empty
      */
     public void add() throws StackException {
+        if (stack[0] == 0){
+            throw new StackException("Stack is empty");
+        }
+
+        else{
+            int value1 = stack[top - 1];
+            stack[top - 1] = 0;
+            top -= 1;
+
+            int value2 = stack[top - 1];
+            stack[top - 1] = 0;
+            top -= 1;
+
+            int value3 = value1 + value2;
+            stack[top] = value3;
+            top += 1;
+        }
     }
 
     /**
@@ -58,6 +106,23 @@ public class StackComputer {
      * Throw a StackException if the stack is empty.
      */
     public void sub() throws StackException {
+        if (stack[0] == 0){
+            throw new StackException("Stack is empty");
+        }
+
+        else{
+            int value1 = stack[top - 1];
+            stack[top - 1] = 0;
+            top -= 1;
+
+            int value2 = stack[top - 1];
+            stack[top - 1] = 0;
+            top -= 1;
+
+            int value3 = value2 - value1;
+            stack[top] = value3;
+            top += 1;
+        }
     }
 
     /**
@@ -66,6 +131,23 @@ public class StackComputer {
      * Throw a StackException if the stack is empty
      */
     public void mul() throws StackException {
+        if (stack[0] == 0){
+            throw new StackException("Stack is empty");
+        }
+
+        else{
+            int value1 = stack[top - 1];
+            stack[top - 1] = 0;
+            top -= 1;
+
+            int value2 = stack[top - 1];
+            stack[top - 1] = 0;
+            top -= 1;
+
+            int value3 = value1 * value2;
+            stack[top] = value3;
+            top += 1;
+        }
     }
 
     /**
@@ -75,6 +157,23 @@ public class StackComputer {
      * Throw a StackException if the stack is empty
      */
     public void div() throws StackException {
+        if (stack[0] == 0){
+            throw new StackException("Stack is empty");
+        }
+
+        else{
+            int value1 = stack[top - 1];
+            stack[top - 1] = 0;
+            top -= 1;
+
+            int value2 = stack[top - 1];
+            stack[top - 1] = 0;
+            top -= 1;
+
+            int value3 = value2 / value1;
+            stack[top] = value3;
+            top += 1;
+        }
     }
 
     public static void main(String[] args) throws StackException {
